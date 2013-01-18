@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
 
-  get "users/new"
+  resources :users #endows app with ALL actions needed for REST Users resource
+
+  #get "users/new"
 
   root to: 'static_pages#home'
 
