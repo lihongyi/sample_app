@@ -1,8 +1,15 @@
 SampleApp::Application.routes.draw do
 
-  resources :users #endows app with ALL actions needed for REST Users resource
+  # resources :users #endows app with ALL actions needed for REST Users resource
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   #get "users/new"
 
